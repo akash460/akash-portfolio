@@ -196,7 +196,7 @@ export default function OpenGraphImage() {
               fontFamily: "monospace",
             }}
           >
-            akashagrahari.dev
+            akashagrahari.vercel.app
           </div>
         </div>
       </div>

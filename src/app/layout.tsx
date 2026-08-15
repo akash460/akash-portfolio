@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://akashagrahari.dev"),
+  metadataBase: new URL("https://akashagrahari.vercel.app"),
   title: `${PERSONAL_INFO.name} | ${PERSONAL_INFO.role}`,
   description: `${PERSONAL_INFO.tagline} Experienced Full-Stack and WordPress Developer specializing in custom PHP plugins, WooCommerce, Elementor, and Next.js / React applications.`,
   keywords: [
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     "Full-Stack Developer India",
     "Fatehpur Developer",
   ],
-  authors: [{ name: PERSONAL_INFO.name, url: "https://akashagrahari.dev" }],
+  authors: [{ name: PERSONAL_INFO.name, url: "https://akashagrahari.vercel.app" }],
   creator: PERSONAL_INFO.name,
   icons: {
     icon: [
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${PERSONAL_INFO.name} | ${PERSONAL_INFO.role}`,
     description: `${PERSONAL_INFO.tagline} Full-Stack & WordPress Developer specializing in Next.js, WooCommerce, PostgreSQL, Supabase, n8n automations, custom PHP plugins, and CRM integrations.`,
-    url: "https://akashagrahari.dev",
+    url: "https://akashagrahari.vercel.app",
     siteName: `${PERSONAL_INFO.name} Portfolio`,
     locale: "en_US",
     type: "website",
@@ -82,6 +82,10 @@ export const metadata: Metadata = {
   },
 };
 
+import { FloatingSidebar } from "@/components/ui/floating-sidebar";
+import { WhatsAppFloat } from "@/components/ui/whatsapp-float";
+import { CallFloat } from "@/components/ui/call-float";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -95,6 +99,9 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-black text-zinc-100 font-sans antialiased selection:bg-emerald-400 selection:text-black">
         {children}
+        <FloatingSidebar />
+        <CallFloat />
+        <WhatsAppFloat />
       </body>
     </html>
   );

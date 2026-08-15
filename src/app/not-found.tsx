@@ -27,7 +27,7 @@ export default function NotFound() {
           className="text-xs font-mono text-zinc-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5"
         >
           <Home className="w-3.5 h-3.5" />
-          <span>akashagrahari.dev</span>
+          <span>akashagrahari.vercel.app</span>
         </Link>
       </header>
 

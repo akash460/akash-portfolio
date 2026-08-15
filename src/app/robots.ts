@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://akashagrahari.dev/sitemap.xml",
+    sitemap: "https://akashagrahari.vercel.app/sitemap.xml",
   };
 }

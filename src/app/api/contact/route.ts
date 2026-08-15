@@ -140,7 +140,7 @@ ${message}
           <tr>
             <td style="padding: 20px 32px; background-color: #08080c; border-top: 1px solid #1a1a24; text-align: center;">
               <p style="margin: 0; font-size: 12px; color: #71717a;">
-                Delivered automatically from your portfolio at <a href="https://akashagrahari.dev" style="color: #a1a1aa; text-decoration: underline;">akashagrahari.dev</a>
+                Delivered automatically from your portfolio at <a href="https://akashagrahari.vercel.app" style="color: #a1a1aa; text-decoration: underline;">akashagrahari.vercel.app</a>
               </p>
             </td>
           </tr>

@@ -10,10 +10,12 @@ import { SkillsSection } from "@/components/sections/skills-section";
 import { EducationSection } from "@/components/sections/education-section";
 import { WhyMeSection } from "@/components/sections/why-me-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen">
+    <main className="bg-black min-h-screen relative">
+      <SmoothScroll />
       <Navbar />
       <HeroSection />
       <PortfolioSection />
@@ -29,3 +31,4 @@ export default function Home() {
     </main>
   );
 }
+

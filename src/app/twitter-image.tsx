@@ -65,7 +65,7 @@ export default function TwitterImage() {
             fontFamily: "monospace",
           }}
         >
-          akashagrahari.dev
+          akashagrahari.vercel.app
         </div>
       </div>
     ),

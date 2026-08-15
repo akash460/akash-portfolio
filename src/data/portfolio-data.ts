@@ -21,8 +21,9 @@ export const PERSONAL_INFO = {
   email: "akashagrahari460@gmail.com",
   phone: "+91-9580836060",
   whatsapp: "+919580836060",
-  github: "https://github.com/akashagrahari",
-  linkedin: "https://linkedin.com/in/akashagrahari",
+  github: "https://github.com/akash460",
+  linkedin: "https://www.linkedin.com/in/akash460/",
+  instagram: "https://www.instagram.com/akashagrahari460",
   status: "🟢 Available for Freelance & Contract Projects",
   resumeUrl: "#contact",
   metrics: [
@@ -147,13 +148,36 @@ export const PROJECTS: Project[] = [
       { label: "Publishing Cycle", value: "Zero-Touch Auto" }
     ],
     liveUrl: "#",
-    githubUrl: "https://github.com/akashagrahari",
+    githubUrl: "https://github.com/akash460",
     featured: true,
     highlights: [
       "Skyvern AI-powered automated web research and multi-source data extraction",
       "n8n multi-node workflow orchestrating LLM content enrichment and schema formatting",
       "Direct publishing via WordPress REST API with custom categories, tags & featured images",
       "Automated webhook error tracking, retry triggers, and notification alerts"
+    ]
+  },
+  {
+    id: "nextjs-saas-platform",
+    title: "Next.js Full-Stack Web App & Client Platform",
+    category: "nextjs",
+    categoryLabel: "Next.js & TypeScript",
+    description: "Modern, high-performance web platform built with Next.js 15 App Router, TypeScript, Tailwind CSS, and Supabase integration.",
+    longDescription: "Architected a responsive, blazing-fast web platform leveraging Next.js 15 App Router, server actions, dynamic metadata SEO optimization, Framer Motion micro-interactions, and secure API routes. Designed for sub-second page loads and 100/100 Core Web Vitals.",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop",
+    tags: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "Framer Motion"],
+    metrics: [
+      { label: "Performance Score", value: "99/100" },
+      { label: "Load Time", value: "< 0.5s" }
+    ],
+    liveUrl: "#",
+    githubUrl: "https://github.com/akash460",
+    featured: true,
+    highlights: [
+      "Next.js 15 App Router with server-side rendering & dynamic metadata",
+      "Tailwind CSS & Framer Motion smooth micro-animations",
+      "Type-safe API routes & robust form validation",
+      "Sub-second Core Web Vitals performance benchmarks"
     ]
   },
   {
@@ -170,7 +194,7 @@ export const PROJECTS: Project[] = [
       { label: "Digital Access", value: "24/7 Patient Portal" }
     ],
     liveUrl: "#",
-    githubUrl: "https://github.com/akashagrahari",
+    githubUrl: "https://github.com/akash460",
     featured: true,
     highlights: [
       "Patient test booking portal & appointment scheduling",
@@ -193,7 +217,7 @@ export const PROJECTS: Project[] = [
       { label: "Load Time", value: "< 0.8s" }
     ],
     liveUrl: "#",
-    githubUrl: "https://github.com/akashagrahari",
+    githubUrl: "https://github.com/akash460",
     featured: true,
     highlights: [
       "Fluid responsive layout adapting seamlessly across desktop, tablet, and mobile",
@@ -208,14 +232,14 @@ export const PROJECTS: Project[] = [
     categoryLabel: "WooCommerce & WordPress",
     description: "High-performance WooCommerce store build featuring custom checkout flows, product filters, and payment gateway integration.",
     longDescription: "Built during client projects at Futurecept. Customized WooCommerce theme templates, implemented custom product filters, streamlined checkout friction, and integrated payment gateways to boost e-commerce conversion rates.",
-    image: "https://images.unsplash.com/photo-1556742049-0a6796574513?q=80&w=1000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1000&auto=format&fit=crop",
     tags: ["WordPress", "WooCommerce", "Elementor", "PHP", "API Integration"],
     metrics: [
       { label: "Checkout Speed", value: "+45% Increase" },
       { label: "Core Web Vitals", value: "Passed" }
     ],
     liveUrl: "#",
-    githubUrl: "https://github.com/akashagrahari",
+    githubUrl: "https://github.com/akash460",
     featured: true,
     highlights: [
       "Custom checkout template reducing checkout abandonment",
@@ -237,7 +261,7 @@ export const PROJECTS: Project[] = [
       { label: "Plugin Weight", value: "< 15KB" }
     ],
     liveUrl: "#",
-    githubUrl: "https://github.com/akashagrahari",
+    githubUrl: "https://github.com/akash460",
     featured: false,
     highlights: [
       "Asynchronous webhook dispatch preserving page load performance",
@@ -258,7 +282,7 @@ export const PROJECTS: Project[] = [
       { label: "Execution Time", value: "Instant" }
     ],
     liveUrl: "#",
-    githubUrl: "https://github.com/akashagrahari",
+    githubUrl: "https://github.com/akash460",
     featured: false,
     highlights: [
       "Random number generation logic with user input validation",
