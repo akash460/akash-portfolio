@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { WHY_ME_FEATURES, PERSONAL_INFO } from "@/data/portfolio-data";
+import { WHY_ME_FEATURES } from "@/data/portfolio-data";
 import { ArrowRight } from "lucide-react";
 
 export function WhyMeSection() {

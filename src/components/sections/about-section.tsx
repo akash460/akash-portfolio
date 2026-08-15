@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PERSONAL_INFO } from "@/data/portfolio-data";
 import { Briefcase, GraduationCap, Award, MapPin } from "lucide-react";
 
 export function AboutSection() {

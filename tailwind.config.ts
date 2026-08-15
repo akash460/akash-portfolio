@@ -25,11 +25,11 @@ const config: Config = {
         accent: {
           lime: "#94e630",
           red: "#eb0b0b",
-        }
+        },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "Manrope", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        mono: ["var(--font-jetbrains-mono)", "JetBrains Mono", "monospace"],
       },
       boxShadow: {
         'glow-lime': '0 0 25px -5px rgba(148, 230, 48, 0.25)',
@@ -38,9 +38,10 @@ const config: Config = {
       borderRadius: {
         '2xl': '16px',
         '3xl': '24px',
-      }
+      },
     },
   },
   plugins: [],
 };
+
 export default config;

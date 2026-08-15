@@ -55,7 +55,7 @@ export function Navbar() {
           href="#contact"
           className="hidden md:inline-flex text-[13px] font-semibold text-black bg-emerald-400 hover:bg-emerald-300 px-5 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.3)]"
         >
-          Let's talk
+          Let&apos;s talk
         </a>
 
         {/* Mobile toggle */}
@@ -92,7 +92,7 @@ export function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="block mt-4 text-center py-3 rounded-full bg-emerald-400 text-black font-semibold text-sm"
             >
-              Let's talk
+              Let&apos;s talk
             </a>
           </motion.div>
         )}

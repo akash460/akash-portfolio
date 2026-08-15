@@ -25,7 +25,7 @@ export function ExperienceSection() {
           viewport={{ once: true }}
           className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight max-w-3xl mb-10 sm:mb-12"
         >
-          Where I've <span className="text-emerald-400">worked.</span>
+          Where I&apos;ve <span className="text-emerald-400">worked.</span>
         </motion.h2>
 
         <div className="space-y-0">

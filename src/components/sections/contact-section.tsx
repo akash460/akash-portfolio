@@ -1,17 +1,71 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { PERSONAL_INFO } from "@/data/portfolio-data";
-import { Send, Mail, Phone, MapPin, Github, Linkedin, CheckCircle } from "lucide-react";
+import { Send, Mail, Phone, MapPin, Github, Linkedin, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
 export function ContactSection() {
-  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    projectType: "",
+    budget: "",
+    message: "",
+    honeypot: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    if (status === "submitting") return;
+
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          projectType: "",
+          budget: "",
+          message: "",
+          honeypot: "",
+        });
+        setTimeout(() => {
+          setStatus("idle");
+        }, 8000);
+      } else {
+        setStatus("error");
+        setErrorMessage(data.error || "Failed to send message. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please email directly at akashagrahari460@gmail.com");
+    }
   };
 
   return (
@@ -35,7 +89,7 @@ export function ContactSection() {
           viewport={{ once: true }}
           className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight max-w-3xl mb-10 sm:mb-12"
         >
-          Let's build something <span className="text-emerald-400">together.</span>
+          Let&apos;s build something <span className="text-emerald-400">together.</span>
         </motion.h2>
 
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-14">
@@ -47,17 +101,23 @@ export function ContactSection() {
             className="lg:col-span-2 space-y-8"
           >
             <p className="text-sm text-zinc-400 leading-relaxed">
-              Have a project in mind or looking for a reliable developer? Drop me a message and I'll get back to you within 24 hours with a clear scope and proposal.
+              Have a project in mind or looking for a reliable developer? Drop me a message and I&apos;ll get back to you within 24 hours with a clear scope and proposal.
             </p>
 
             <div className="space-y-5">
-              <a href={`mailto:${PERSONAL_INFO.email}`} className="flex items-center gap-3 text-sm text-zinc-400 hover:text-emerald-400 transition-colors group">
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                className="flex items-center gap-3 text-sm text-zinc-400 hover:text-emerald-400 transition-colors group"
+              >
                 <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.06] group-hover:border-emerald-400/20 transition-colors">
                   <Mail className="w-4 h-4" />
                 </div>
                 {PERSONAL_INFO.email}
               </a>
-              <a href={`tel:${PERSONAL_INFO.phone}`} className="flex items-center gap-3 text-sm text-zinc-400 hover:text-emerald-400 transition-colors group">
+              <a
+                href={`tel:${PERSONAL_INFO.phone}`}
+                className="flex items-center gap-3 text-sm text-zinc-400 hover:text-emerald-400 transition-colors group"
+              >
                 <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.06] group-hover:border-emerald-400/20 transition-colors">
                   <Phone className="w-4 h-4" />
                 </div>
@@ -77,6 +137,7 @@ export function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-lg border border-white/[0.06] text-zinc-500 hover:text-white hover:border-white/[0.12] transition-colors"
+                aria-label="GitHub"
               >
                 <Github className="w-4 h-4" />
               </a>
@@ -85,6 +146,7 @@ export function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-lg border border-white/[0.06] text-zinc-500 hover:text-white hover:border-white/[0.12] transition-colors"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -100,83 +162,187 @@ export function ContactSection() {
             transition={{ delay: 0.1 }}
             className="lg:col-span-3 space-y-6"
           >
+            {/* Honeypot for spam protection */}
+            <input
+              type="text"
+              name="honeypot"
+              value={formData.honeypot}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+              className="hidden"
+            />
+
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
-                <label className="text-[11px] text-zinc-600 font-mono uppercase tracking-wider block mb-2">Name</label>
+                <label className="text-[11px] text-zinc-400 font-mono uppercase tracking-wider block mb-2">
+                  Name *
+                </label>
                 <input
                   type="text"
+                  name="name"
                   required
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your name"
-                  className="w-full px-4 py-3 rounded-xl bg-[#0a0a0a] border border-white/[0.06] text-sm text-white placeholder:text-zinc-700 focus:outline-none focus:border-emerald-400/40 transition-colors"
+                  disabled={status === "submitting"}
+                  className="w-full px-4 py-3 rounded-xl bg-[#0a0a0a] border border-white/[0.08] text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-emerald-400/50 transition-colors disabled:opacity-50"
                 />
               </div>
               <div>
-                <label className="text-[11px] text-zinc-600 font-mono uppercase tracking-wider block mb-2">Email</label>
+                <label className="text-[11px] text-zinc-400 font-mono uppercase tracking-wider block mb-2">
+                  Email *
+                </label>
                 <input
                   type="email"
+                  name="email"
                   required
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="you@company.com"
-                  className="w-full px-4 py-3 rounded-xl bg-[#0a0a0a] border border-white/[0.06] text-sm text-white placeholder:text-zinc-700 focus:outline-none focus:border-emerald-400/40 transition-colors"
+                  disabled={status === "submitting"}
+                  className="w-full px-4 py-3 rounded-xl bg-[#0a0a0a] border border-white/[0.08] text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-emerald-400/50 transition-colors disabled:opacity-50"
                 />
               </div>
             </div>
 
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label className="text-[11px] text-zinc-400 font-mono uppercase tracking-wider block mb-2">
+                  Phone Number (Optional)
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="+91 98765 43210"
+                  disabled={status === "submitting"}
+                  className="w-full px-4 py-3 rounded-xl bg-[#0a0a0a] border border-white/[0.08] text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-emerald-400/50 transition-colors disabled:opacity-50"
+                />
+              </div>
+              <div>
+                <label className="text-[11px] text-zinc-400 font-mono uppercase tracking-wider block mb-2">
+                  Budget Range
+                </label>
+                <select
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleChange}
+                  disabled={status === "submitting"}
+                  className="w-full px-4 py-3 rounded-xl bg-[#0a0a0a] border border-white/[0.08] text-sm text-zinc-300 focus:outline-none focus:border-emerald-400/50 transition-colors disabled:opacity-50"
+                >
+                  <option value="">Select a budget range (Optional)</option>
+                  <option value="< $500">&lt; $500</option>
+                  <option value="$500 – $1,000">$500 – $1,000</option>
+                  <option value="$1,000 – $3,000">$1,000 – $3,000</option>
+                  <option value="$3,000 – $5,000">$3,000 – $5,000</option>
+                  <option value="$5,000+">$5,000+</option>
+                </select>
+              </div>
+            </div>
+
             <div>
-              <label className="text-[11px] text-zinc-600 font-mono uppercase tracking-wider block mb-2">Project Type</label>
+              <label className="text-[11px] text-zinc-400 font-mono uppercase tracking-wider block mb-2">
+                Project Type
+              </label>
               <select
-                required
-                className="w-full px-4 py-3 rounded-xl bg-[#0a0a0a] border border-white/[0.06] text-sm text-zinc-400 focus:outline-none focus:border-emerald-400/40 transition-colors appearance-none"
+                name="projectType"
+                value={formData.projectType}
+                onChange={handleChange}
+                disabled={status === "submitting"}
+                className="w-full px-4 py-3 rounded-xl bg-[#0a0a0a] border border-white/[0.08] text-sm text-zinc-300 focus:outline-none focus:border-emerald-400/50 transition-colors disabled:opacity-50"
               >
-                <option value="">Select a service</option>
-                <option>WordPress Development</option>
-                <option>Custom WordPress Plugin</option>
-                <option>WooCommerce Store</option>
-                <option>CRM & API Integration</option>
-                <option>Next.js / React Application</option>
-                <option>Landing Page Design</option>
-                <option>Other</option>
+                <option value="">Select a service (Optional)</option>
+                <option value="WordPress Development">WordPress Development</option>
+                <option value="Custom WordPress Plugin">Custom WordPress Plugin</option>
+                <option value="WooCommerce Store">WooCommerce Store</option>
+                <option value="n8n & Skyvern Automation">n8n &amp; Skyvern Automation</option>
+                <option value="Next.js / React Application">Next.js / React Application</option>
+                <option value="High-Converting Landing Page">High-Converting Landing Page</option>
+                <option value="Other">Other Custom Web Solution</option>
               </select>
             </div>
 
             <div>
-              <label className="text-[11px] text-zinc-600 font-mono uppercase tracking-wider block mb-2">Budget Range</label>
-              <select
-                className="w-full px-4 py-3 rounded-xl bg-[#0a0a0a] border border-white/[0.06] text-sm text-zinc-400 focus:outline-none focus:border-emerald-400/40 transition-colors appearance-none"
-              >
-                <option value="">Select a range</option>
-                <option>$500 – $1,000</option>
-                <option>$1,000 – $3,000</option>
-                <option>$3,000 – $5,000</option>
-                <option>$5,000+</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="text-[11px] text-zinc-600 font-mono uppercase tracking-wider block mb-2">Message</label>
+              <label className="text-[11px] text-zinc-400 font-mono uppercase tracking-wider block mb-2">
+                Message *
+              </label>
               <textarea
+                name="message"
                 rows={4}
                 required
-                placeholder="Tell me about your project..."
-                className="w-full px-4 py-3 rounded-xl bg-[#0a0a0a] border border-white/[0.06] text-sm text-white placeholder:text-zinc-700 focus:outline-none focus:border-emerald-400/40 transition-colors resize-none"
+                value={formData.message}
+                onChange={handleChange}
+                disabled={status === "submitting"}
+                placeholder="Tell me about your project goals, scope, and timeline..."
+                className="w-full px-4 py-3 rounded-xl bg-[#0a0a0a] border border-white/[0.08] text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-emerald-400/50 transition-colors resize-none disabled:opacity-50"
               />
             </div>
 
-            <button
-              type="submit"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-emerald-400 text-black font-semibold text-sm hover:bg-emerald-300 transition-all duration-300 hover:shadow-[0_0_30px_rgba(74,222,128,0.25)]"
-            >
-              {submitted ? (
-                <>
-                  <CheckCircle className="w-4 h-4" />
-                  Sent — I'll reply within 24h
-                </>
-              ) : (
-                <>
-                  <Send className="w-4 h-4" />
-                  Send message
-                </>
+            {/* Error Message */}
+            <AnimatePresence>
+              {status === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -5 }}
+                  className="p-3.5 rounded-xl bg-red-950/40 border border-red-500/30 text-red-300 text-xs flex items-center gap-2.5"
+                >
+                  <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
+                  <span>{errorMessage}</span>
+                </motion.div>
               )}
-            </button>
+            </AnimatePresence>
+
+            {/* Success Message */}
+            <AnimatePresence>
+              {status === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -5 }}
+                  className="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-300 text-xs flex items-center gap-3"
+                >
+                  <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-400" />
+                  <div>
+                    <div className="font-semibold text-white">Message sent successfully!</div>
+                    <div className="text-emerald-300/80 mt-0.5">
+                      Thank you! Your inquiry has been delivered directly to akashagrahari460@gmail.com. I will reply within 24 hours.
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <button
+                type="submit"
+                disabled={status === "submitting" || status === "success"}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-emerald-400 text-black font-semibold text-sm hover:bg-emerald-300 transition-all duration-300 hover:shadow-[0_0_30px_rgba(74,222,128,0.25)] disabled:opacity-75 disabled:cursor-not-allowed"
+              >
+                {status === "submitting" ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Sending message...
+                  </>
+                ) : status === "success" ? (
+                  <>
+                    <CheckCircle2 className="w-4 h-4" />
+                    Sent successfully
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    Send message
+                  </>
+                )}
+              </button>
+
+              <span className="text-xs text-zinc-500 font-mono">
+                Direct to: akashagrahari460@gmail.com
+              </span>
+            </div>
           </motion.form>
         </div>
 
