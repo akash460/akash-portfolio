@@ -9,15 +9,15 @@ export function Footer() {
 
   return (
     <footer className="bg-black border-t border-white/[0.06]">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="max-w-6xl mx-auto px-6 py-10 sm:py-12">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           {/* Left */}
           <div>
             <a href="#hero" className="inline-flex items-center">
               <Logo iconSize="md" />
             </a>
-            <p className="text-xs text-zinc-600 mt-2 max-w-sm">
-              Full-stack web developer crafting fast, clean, and profitable digital products.
+            <p className="text-xs text-zinc-400 mt-2 max-w-sm">
+              Full-Stack & WordPress Developer crafting fast, clean, and profitable digital products.
             </p>
           </div>
 

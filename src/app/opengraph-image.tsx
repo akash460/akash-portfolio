@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-export const alt = "Akash Agrahari - Full-Stack & WordPress Engineer";
+export const alt = "Akash Agrahari - Full-Stack & WordPress Developer";
 export const size = {
   width: 1200,
   height: 630,
@@ -135,7 +134,7 @@ export default function OpenGraphImage() {
               color: "#34d399",
             }}
           >
-            Full-Stack & WordPress Engineer
+            Full-Stack & WordPress Developer
           </div>
           <div
             style={{

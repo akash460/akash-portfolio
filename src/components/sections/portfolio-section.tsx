@@ -19,16 +19,16 @@ export function PortfolioSection() {
   const filtered = active === "all" ? PROJECTS : PROJECTS.filter((p) => p.category === active);
 
   return (
-    <section id="work" className="py-24 lg:py-32 bg-black">
-      <div className="section-line" />
-      <div className="max-w-6xl mx-auto px-6 pt-24 lg:pt-32">
+    <section id="work" className="py-16 sm:py-20 lg:py-24 bg-black relative">
+      <div className="section-line mb-12 sm:mb-16" />
+      <div className="max-w-6xl mx-auto px-6">
 
         {/* Label */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex items-center gap-3 mb-6"
+          className="flex items-center gap-3 mb-4"
         >
           <div className="w-8 h-[1px] bg-emerald-400" />
           <span className="text-xs text-emerald-400 font-mono uppercase tracking-widest">Selected Work</span>
@@ -38,21 +38,21 @@ export function PortfolioSection() {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight max-w-3xl mb-12"
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight max-w-3xl mb-8"
         >
           Projects I've <span className="text-emerald-400">shipped.</span>
         </motion.h2>
 
         {/* Filters */}
-        <div className="flex flex-wrap gap-2 mb-12">
+        <div className="flex flex-wrap gap-2 mb-8 sm:mb-10">
           {FILTERS.map((f) => (
             <button
               key={f.id}
               onClick={() => setActive(f.id)}
               className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
                 active === f.id
-                  ? "bg-emerald-400 text-black"
-                  : "bg-transparent border border-white/10 text-zinc-500 hover:text-white hover:border-white/20"
+                  ? "bg-emerald-400 text-black shadow-[0_0_15px_rgba(74,222,128,0.25)]"
+                  : "bg-transparent border border-white/10 text-zinc-400 hover:text-white hover:border-white/20"
               }`}
             >
               {f.label}

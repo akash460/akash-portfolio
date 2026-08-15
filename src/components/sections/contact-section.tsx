@@ -15,15 +15,15 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-black">
-      <div className="section-line" />
-      <div className="max-w-6xl mx-auto px-6 pt-24 lg:pt-32">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-black relative">
+      <div className="section-line mb-12 sm:mb-16" />
+      <div className="max-w-6xl mx-auto px-6">
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex items-center gap-3 mb-6"
+          className="flex items-center gap-3 mb-4"
         >
           <div className="w-8 h-[1px] bg-emerald-400" />
           <span className="text-xs text-emerald-400 font-mono uppercase tracking-widest">Contact</span>
@@ -33,12 +33,12 @@ export function ContactSection() {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight max-w-3xl mb-16"
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight max-w-3xl mb-10 sm:mb-12"
         >
           Let's build something <span className="text-emerald-400">together.</span>
         </motion.h2>
 
-        <div className="grid lg:grid-cols-5 gap-16">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-14">
           {/* Left — info */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -67,7 +67,7 @@ export function ContactSection() {
                 <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.06]">
                   <MapPin className="w-4 h-4" />
                 </div>
-                Mohali, India — Remote Worldwide
+                Fatehpur, UP, India — Remote Worldwide
               </div>
             </div>
 

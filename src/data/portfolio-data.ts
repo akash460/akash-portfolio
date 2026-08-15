@@ -14,10 +14,10 @@ import {
 
 export const PERSONAL_INFO = {
   name: "Akash Agrahari",
-  role: "Full-Stack & WordPress Engineer",
+  role: "Full-Stack & WordPress Developer",
   company: "Futurecept",
-  tagline: "I build high-converting websites and digital products that help businesses scale.",
-  location: "Mohali / Prayagraj, India (Available Worldwide Remote)",
+  tagline: "Full-Stack & WordPress Developer building custom plugins, high-converting WooCommerce stores, and scalable Next.js web applications.",
+  location: "Fatehpur, Uttar Pradesh, India (Available Worldwide Remote)",
   email: "akashagrahari460@gmail.com",
   phone: "+91-9580836060",
   whatsapp: "+919580836060",
@@ -84,19 +84,19 @@ export const SERVICES: Service[] = [
   },
   {
     id: "crm-api-integrations",
-    title: "CRM & API Integrations",
-    shortDescription: "Seamless connection between your website, custom APIs, and lead management CRMs.",
-    fullDescription: "Connect your WordPress, React, or Next.js site to external tools. I build automated lead capture webhooks, RESTful API integrations, and CRM synchronization scripts using PHP & Node.js.",
+    title: "n8n & Skyvern Workflow Automation",
+    shortDescription: "Zero-touch automated workflows, AI research agents, and direct WordPress blog publishing engines that eliminate manual work.",
+    fullDescription: "Cut hours of repetitive manual effort. I architect autonomous n8n workflows integrated with Skyvern AI browser agents that conduct web research, synthesize structured data, and publish SEO-optimized blog articles directly to WordPress and sync with CRMs.",
     iconName: "api",
-    badge: "{ API & CRM }",
+    badge: "{ n8n & Skyvern }",
     deliverables: [
-      "RESTful API Integration (PHP & JS)",
-      "CRM Lead Automation & Sync",
-      "Custom Webhooks & Notification Bots",
-      "Third-Party Payment & Booking APIs",
-      "Firebase / Cloud Database Sync"
+      "n8n Automated Workflow Pipelines",
+      "Skyvern AI Web Scraping & Research Agents",
+      "Direct WordPress REST API Blog Publishing",
+      "CRM, Postgres & Webhook Automation",
+      "Zero-Touch Content & Lead Sync Engines"
     ],
-    targetAudience: "Lead-generation businesses and SaaS companies."
+    targetAudience: "Agencies, content publishers, and businesses seeking zero-touch workflow automation."
   },
   {
     id: "nextjs-react-apps",
@@ -133,6 +133,29 @@ export const SERVICES: Service[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    id: "skyvern-n8n-wp-automation",
+    title: "AI Blog Research & Direct WordPress Publishing Engine",
+    category: "wordpress",
+    categoryLabel: "n8n & Skyvern Automation",
+    description: "Autonomous content pipeline using Skyvern AI browser agents for automated web research and n8n workflows for zero-touch WordPress article publishing.",
+    longDescription: "Engineered an end-to-end automated workflow to eliminate 85%+ of manual blogging effort. Skyvern's AI vision & browser automation agents autonomously scrape and synthesize in-depth research from verified sources, feed structured data into n8n workflow nodes for markdown drafting and SEO optimization, and directly publish finalized articles into WordPress via the WordPress REST API.",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop",
+    tags: ["n8n", "Skyvern", "WordPress REST API", "AI Automation", "PostgreSQL", "Webhooks"],
+    metrics: [
+      { label: "Manual Effort Saved", value: "85% Less Work" },
+      { label: "Publishing Cycle", value: "Zero-Touch Auto" }
+    ],
+    liveUrl: "#",
+    githubUrl: "https://github.com/akashagrahari",
+    featured: true,
+    highlights: [
+      "Skyvern AI-powered automated web research and multi-source data extraction",
+      "n8n multi-node workflow orchestrating LLM content enrichment and schema formatting",
+      "Direct publishing via WordPress REST API with custom categories, tags & featured images",
+      "Automated webhook error tracking, retry triggers, and notification alerts"
+    ]
+  },
   {
     id: "online-pathology-lab",
     title: "Online Pathology Lab Booking System",
@@ -255,11 +278,12 @@ export const EXPERIENCES: Experience[] = [
     isCurrent: true,
     type: "Full-time",
     responsibilities: [
-      "Engineered and maintained responsive web applications utilizing Next.js, React.js, and Firebase (Firestore, Authentication, Hosting).",
-      "Implemented secure user authentication, real-time database management, and RESTful API integrations to improve application scalability.",
-      "Collaborated in an Agile environment using Git/GitHub for version control, code reviews, and clean architectural standards."
+      "Engineered and maintained scalable full-stack web applications utilizing Next.js (App Router), React.js, and TypeScript with clean component architectures.",
+      "Architected database schemas and serverless backends using PostgreSQL, Neon DB, Supabase (Auth, DB, Realtime, Storage), and Firebase.",
+      "Built automated workflow pipelines, AI research agents, and zero-touch WordPress publishing systems using n8n and Skyvern to eliminate repetitive manual work.",
+      "Developed custom RESTful APIs, webhooks, and secure user authentication systems ensuring high availability and seamless frontend integration."
     ],
-    technologies: ["Next.js", "React.js", "Firebase", "JavaScript", "TypeScript", "Tailwind CSS", "Git"]
+    technologies: ["Next.js", "React.js", "TypeScript", "PostgreSQL", "Neon DB", "Supabase", "n8n", "Skyvern", "WordPress REST API", "Firebase", "Tailwind CSS", "Git"]
   },
   {
     id: "exp-futurecept-intern",
@@ -282,7 +306,7 @@ export const EXPERIENCES: Experience[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    name: "CMS & E-Commerce",
+    name: "CMS & WordPress Engineering",
     description: "Expertise in building scalable WordPress sites, plugins, WooCommerce stores, and Shopify themes.",
     skills: [
       { name: "WordPress Development", level: "Expert", isPrimary: true },
@@ -306,27 +330,28 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     ]
   },
   {
-    name: "Backend, Databases & APIs",
-    description: "Robust database integration, serverless Firebase, and API management.",
+    name: "Databases, Backend & APIs",
+    description: "Modern database architecture, serverless databases, and API development.",
     skills: [
+      { name: "PostgreSQL & Neon DB", level: "Advanced", isPrimary: true },
+      { name: "Supabase (DB & Auth)", level: "Advanced", isPrimary: true },
       { name: "PHP", level: "Advanced", isPrimary: true },
       { name: "RESTful APIs & Webhooks", level: "Advanced", isPrimary: true },
-      { name: "CRM & API Integration", level: "Advanced", isPrimary: true },
       { name: "Firebase (Auth, Firestore)", level: "Advanced" },
-      { name: "Node.js & Express.js", level: "Proficient" },
       { name: "MySQL & MongoDB", level: "Advanced" },
-      { name: "Python & Java", level: "Proficient" },
+      { name: "Node.js & Express.js", level: "Proficient" },
     ]
   },
   {
-    name: "Tools, Workflow & Soft Skills",
-    description: "Professional development tools and client communication.",
+    name: "Automation & Tools",
+    description: "Workflow automation, web scraping, and professional developer tooling.",
     skills: [
-      { name: "VS Code & IntelliJ", level: "Expert" },
+      { name: "n8n Workflows", level: "Expert", isPrimary: true },
+      { name: "Skyvern AI Automation", level: "Advanced", isPrimary: true },
+      { name: "CRM & API Integration", level: "Advanced", isPrimary: true },
       { name: "Git & GitHub", level: "Expert", isPrimary: true },
-      { name: "Agile & Jira/Trello", level: "Advanced" },
       { name: "PageSpeed & SEO Audit", level: "Advanced" },
-      { name: "English & Hindi Fluent", level: "Expert" },
+      { name: "VS Code & Agile / Jira", level: "Expert" },
     ]
   }
 ];
@@ -494,11 +519,11 @@ export const TESTIMONIALS: Testimonial[] = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: "blog-1",
-    title: "Building High-Speed WordPress Sites Without Plugin Bloat",
-    category: "WordPress & PHP",
+    title: "Zero-Touch WordPress Blog Publishing with n8n and Skyvern AI",
+    category: "AI & Automation",
     date: "Feb 10, 2026",
-    readTime: "5 min read",
-    summary: "Learn how writing custom PHP hooks and native Gutenberg blocks yields 98+ Google PageSpeed insights scores.",
+    readTime: "6 min read",
+    summary: "How to automate web research with Skyvern browser agents and orchestrate n8n workflows to publish SEO-optimized articles directly to WordPress.",
     link: "#"
   },
   {
@@ -512,11 +537,11 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: "blog-3",
-    title: "WooCommerce Checkout Optimization for Maximum Conversion Rates",
-    category: "E-Commerce",
+    title: "Building High-Speed WordPress Sites Without Plugin Bloat",
+    category: "WordPress & PHP",
     date: "Jan 15, 2026",
-    readTime: "4 min read",
-    summary: "How streamlining checkout friction and optimizing cart payloads increases store revenue by up to 35%.",
+    readTime: "5 min read",
+    summary: "Learn how writing custom PHP hooks and native Gutenberg blocks yields 98+ Google PageSpeed insights scores.",
     link: "#"
   }
 ];

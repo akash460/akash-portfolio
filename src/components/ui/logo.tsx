@@ -80,7 +80,7 @@ export function Logo({
         </div>
         {showTagline && (
           <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-medium font-mono -mt-0.5">
-            Full-Stack Engineer
+            Full-Stack & WP Developer
           </span>
         )}
       </div>
