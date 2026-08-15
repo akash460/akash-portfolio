@@ -16,6 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://akashagrahari.dev"),
   title: `${PERSONAL_INFO.name} | ${PERSONAL_INFO.role}`,
   description: `${PERSONAL_INFO.tagline} Full-Stack & WordPress Engineer specializing in Next.js, WooCommerce, custom PHP plugins, and CRM integrations.`,
   keywords: [
@@ -30,10 +31,21 @@ export const metadata: Metadata = {
     "CRM Integration",
     "Full-Stack Developer India",
   ],
-  authors: [{ name: PERSONAL_INFO.name }],
+  authors: [{ name: PERSONAL_INFO.name, url: "https://akashagrahari.dev" }],
+  creator: PERSONAL_INFO.name,
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-icon", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/icon.svg"],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: `${PERSONAL_INFO.name} | ${PERSONAL_INFO.role}`,
-    description: PERSONAL_INFO.tagline,
+    description: `${PERSONAL_INFO.tagline} Full-Stack & WordPress Engineer specializing in Next.js, WooCommerce, custom PHP plugins, and CRM integrations.`,
     url: "https://akashagrahari.dev",
     siteName: `${PERSONAL_INFO.name} Portfolio`,
     locale: "en_US",
@@ -43,6 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${PERSONAL_INFO.name} | ${PERSONAL_INFO.role}`,
     description: PERSONAL_INFO.tagline,
+    creator: "@akashagrahari",
   },
   robots: {
     index: true,

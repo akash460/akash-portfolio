@@ -1,0 +1,17 @@
+{
+  "name": "Akash Agrahari - Full-Stack & WordPress Engineer",
+  "short_name": "Akash Agrahari",
+  "description": "Portfolio of Akash Agrahari, Full-Stack and WordPress Engineer specializing in Next.js, WooCommerce, custom PHP plugins, and CRM integrations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
 
 const NAV_ITEMS = [
   { name: "Work", href: "#work" },
@@ -32,8 +33,8 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="text-white font-bold text-lg tracking-tight">
-          akash<span className="text-emerald-400">.</span>
+        <a href="#hero" className="inline-flex items-center">
+          <Logo iconSize="sm" />
         </a>
 
         {/* Desktop Nav */}

@@ -2,6 +2,7 @@
 
 import { PERSONAL_INFO } from "@/data/portfolio-data";
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
 
 export function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -12,8 +13,8 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           {/* Left */}
           <div>
-            <a href="#hero" className="text-white font-bold text-lg tracking-tight">
-              akash<span className="text-emerald-400">.</span>
+            <a href="#hero" className="inline-flex items-center">
+              <Logo iconSize="md" />
             </a>
             <p className="text-xs text-zinc-600 mt-2 max-w-sm">
               Full-stack web developer crafting fast, clean, and profitable digital products.
